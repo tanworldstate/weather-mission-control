@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weather Mission Control</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="hero">
+<div>
+<p class="eyebrow">Advanced API Project</p>
+<h1>Weather Mission Control</h1>
+<p class="hero-text">
+Search any city, view a 7-day forecast, save favorite places, and compare trip weather.
+</p>
+</div>
+</header>
+<main class="layout">
+<section class="panel search-panel">
+<h2>1. Search a city</h2>
+<form id="searchForm" class="search-form">
+<input id="cityInput" type="text" placeholder="Try San Francisco, Tokyo, Paris..." />
+<button type="submit">Search</button>
+</form>
+<div class="quick-buttons" aria-label="Quick search buttons">
+<button class="ghost" data-city="San Francisco">San Francisco</button>
+<button class="ghost" data-city="New York">New York</button>
+<button class="ghost" data-city="London">London</button>
+<button class="ghost" data-city="Tokyo">Tokyo</button>
+</div>
+<p id="status" class="status">Type a city name to begin.</p>
+<div id="matches" class="matches"></div>
+</section>
+<section id="dashboard" class="dashboard hidden">
+<section class="panel current-panel">
+<div class="section-title-row">
+<div>
+<h2 id="placeName">Weather</h2>
+<p id="placeDetails" class="muted"></p>
+</div>
+<button id="favoriteButton" class="secondary">Save Favorite</button>
+</div>
+<div class="current-grid">
+<article class="big-weather-card">
+<div id="weatherIcon" class="weather-icon"> </div>
+<div>
 
+<p class="label">Current temperature</p>
+<p id="currentTemp" class="big-number">--°F</p>
+<p id="currentSummary" class="muted">--</p>
+</div>
+</article>
+<article class="mini-card">
+<p class="label">Feels like</p>
+<p id="feelsLike" class="mini-number">--°F</p>
+</article>
+<article class="mini-card">
+<p class="label">Humidity</p>
+<p id="humidity" class="mini-number">--%</p>
+</article>
+<article class="mini-card">
+<p class="label">Wind</p>
+<p id="wind" class="mini-number">-- mph</p>
+</article>
+</div>
+</section>
+<section class="panel verdict-panel">
+<h2>2. Trip verdict</h2>
+<p id="tripVerdict" class="verdict">Search for a city first.</p>
+<p id="tripReason" class="muted"></p>
+</section>
+<section class="panel chart-panel">
+<h2>3. 7-day temperature chart</h2>
+<canvas id="weatherChart" height="130"></canvas>
+</section>
+<section class="panel forecast-panel">
+<h2>4. Daily forecast cards</h2>
+<div id="forecastCards" class="forecast-grid"></div>
+</section>
+</section>
+<section class="panel storage-panel">
+<h2>5. Saved places</h2>
+<p class="muted">Favorites and recent searches are saved in this browser with localStorage.</p>
+<div id="favoritesList" class="saved-list"></div>
+<div id="recentList" class="saved-list"></div>
+<button id="clearDataButton" class="danger">Clear saved data</button>
+</section>
+<section class="panel compare-panel">
+<h2>6. Compare two favorite cities</h2>
+<p class="muted">Save at least two favorite cities, then compare their next 7 days.</p>
+<div class="compare-controls">
+<select id="compareA"></select>
+<select id="compareB"></select>
+<button id="compareButton">Compare</button>
+</div>
+<div id="compareResults" class="compare-results"></div>
+</section>
+</main>
+<footer class="footer">
+<p>Built with HTML, CSS, JavaScript, Open-Meteo APIs, Chart.js, and localStorage.</p>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
