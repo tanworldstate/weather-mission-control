@@ -380,3 +380,14 @@ function showStatus(message, isError = false) {
 statusEl.textContent = message;
 statusEl.style.color = isError ? "#dc2626" : "#64748b";
 }
+// Adjust selector to match your "Use this city" button (class or id)
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.use-city-button'); // change .use-city-button to your actual selector
+  if (!btn) return;
+
+  // If the button or its handler focuses an input, blur the button afterwards to avoid mobile zoom
+  // (This preserves click behavior but removes focus which triggers zoom on some devices)
+  setTimeout(() => {
+    try { btn.blur(); } catch (err) { /* ignore */ }
+  }, 0);
+});
